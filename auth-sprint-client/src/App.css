@@ -1,0 +1,19 @@
+.App {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.input-container {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: inline-block;
+  background: #fff;
+  border-top: 20px solid dodgerblue;
+}
+
+.jokes-container {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: inline-block;
+  padding: 0 20px;
+  background: #fff;
+  border-top: 20px solid dodgerblue;
+}
