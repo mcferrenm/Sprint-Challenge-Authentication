@@ -7,23 +7,7 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   display: inline-block;
   background: #fff;
-}
-
-input {
-  border: none;
-  border-bottom: 1px dotted #666;
-}
-
-input[type="Submit"] {
-  border: 1px dotted #666;
-}
-
-li {
-  border-bottom: 1px dotted #666;
-}
-
-li:last-of-type {
-  border-bottom: none;
+  border-top: 20px solid dodgerblue;
 }
 
 .jokes-container {
@@ -31,4 +15,5 @@ li:last-of-type {
   display: inline-block;
   padding: 0 20px;
   background: #fff;
+  border-top: 20px solid dodgerblue;
 }

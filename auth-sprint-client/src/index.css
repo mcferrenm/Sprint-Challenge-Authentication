@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans|Playfair+Display");
 
 * {
-  margin: 3px;
+  margin: 5px;
   padding: 3px;
   box-sizing: border-box;
   font-size: 1rem;
@@ -17,8 +17,27 @@ a {
   font-size: 2rem;
   text-decoration: none;
   color: #666;
+  cursor: pointer;
 }
 
 a.active {
   color: #333;
+}
+
+input {
+  border: none;
+  border-bottom: 1px dotted #666;
+}
+
+input[type="Submit"] {
+  border: 1px dotted #666;
+}
+
+li {
+  border-bottom: 1px dotted #666;
+  color: #333;
+}
+
+li:last-of-type {
+  border-bottom: none;
 }
