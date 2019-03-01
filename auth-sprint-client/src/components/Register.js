@@ -17,16 +17,15 @@ class Register extends React.Component {
       "http://localhost:3300/api/register",
       this.state
     );
-    if(user && user.data && user.data.token) {
-      localStorage.setItem("jwt", user.data.token)
+    if (user && user.data && user.data.token) {
+      localStorage.setItem("jwt", user.data.token);
 
-      this.props.history.push("/jokes")
+      this.props.history.push("/jokes");
     }
-
   };
   render() {
     return (
-      <div className="register-container">
+      <div className="input-container">
         <form onSubmit={this.register}>
           <div>
             <label htmlFor="username">username:</label>
