@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const Users = require("../users/users-model");
 const { authenticate } = require("../auth/authenticate");
+const tokenService = require("../auth/token-service");
 
 module.exports = server => {
   server.post("/api/register", register);
@@ -25,9 +26,15 @@ async function register(req, res) {
 
       const [id] = await Users.add(req.body);
 
-      if (id) {
-        const user = await Users.get(id);
-        res.status(200).json({ message: `Welcome ${user.username}` });
+      const user = await Users.get(id);
+      if (user) {
+        const token = tokenService.generateToken(user);
+
+        res.status(200).json({
+          message: `Welcome ${user.username}, here is your token`,
+          token,
+          username: user.username
+        });
       } else {
         res.status(404).json({ error: "Error registering user" });
       }
@@ -40,13 +47,21 @@ async function register(req, res) {
 async function login(req, res) {
   const { username, password } = req.body;
   if (!username || !password) {
-    res.status(400).json({error: "Must provide username and password to register"})
+    res
+      .status(400)
+      .json({ error: "Must provide username and password to register" });
   } else {
     try {
       const user = await Users.findBy({ username });
 
       if (user && bcrypt.compareSync(password, user.password)) {
-        res.status(200).json({ message: `Welcome ${user.username}` });
+        const token = tokenService.generateToken(user);
+
+        res.status(200).json({
+          message: `Welcome ${user.username}, here is your token`,
+          token,
+          username: user.username
+        });
       } else {
         res.status(401).json({ error: "Invalid credentials" });
       }
