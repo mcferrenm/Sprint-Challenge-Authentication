@@ -8,7 +8,8 @@ const tokenService = require("../auth/token-service");
 module.exports = server => {
   server.post("/api/register", register);
   server.post("/api/login", login);
-  server.get("/api/jokes", authenticate, getJokes);
+  // server.get("/api/jokes", authenticate, getJokes);
+  server.get("/api/jokes", getJokes);
   server.get("/api/users", getUsers);
   server.get("/api/users/:id", getUsersById);
 };
